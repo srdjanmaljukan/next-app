@@ -17,7 +17,7 @@ export async function GET(request: NextRequest, { params: { id } }: Props) {
   // else return data
 
   const user = await prisma.user.findUnique({
-    where: {id: parseInt(id)}
+    where: {id: id}
   })
 
   if (!user) {
@@ -41,7 +41,7 @@ export async function PUT(request: NextRequest, {params: {id}}: Props) {
     }
 
     const user = await prisma.user.findUnique({
-      where: {id: parseInt(id)}
+      where: {id: id}
     })
 
     if (!user) {
@@ -65,7 +65,7 @@ export async function DELETE(request: NextRequest, {params: {id}}: Props) {
   // else, delete user and return 200 response
 
   const user = await prisma.user.findUnique({
-    where : {id: parseInt(id)}
+    where : {id: id}
   })
 
   if (!user) {
